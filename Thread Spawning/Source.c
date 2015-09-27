@@ -26,7 +26,7 @@
 //
 
 //Function Prototypes
-void* threadProgram();
+void* threadProgram(void *);
 //
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +44,7 @@ void* main(int argv, char* argc[])
 	printf("main: main thread here; pid is %lu, tid is %lu\n", getpid(), pthread_self());
 
 	//spawn new thread
-	result = pthread_create(&tid, NULL, threadProgram(), NULL);
+	result = pthread_create(&tid, NULL, threadProgram, NULL);
 
 
 	//check results and complete program accordingly
@@ -67,7 +67,7 @@ void* main(int argv, char* argc[])
 
 
 
-void* threadProgram()
+void* threadProgram(void * nothing)
 {
 	printf("\tsecond thread here, my tid is %lu but I'm still in process %lu\n", pthread_self(), getpid());
 }
