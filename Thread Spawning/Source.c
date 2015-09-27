@@ -69,5 +69,5 @@ void* main(int argv, char* argc[])
 
 void* threadProgram()
 {
-	printf("\tsecond thread here, my tid is %lu but I'm still in process %lu\n", gettid(), getpid());
+	printf("\tsecond thread here, my tid is %lu but I'm still in process %lu\n", pthread_self(), getpid());
 }
