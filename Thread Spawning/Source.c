@@ -51,14 +51,14 @@ void* main(int argv, char* argc[])
 	if (result == 0)//successful creation of a seccond thread
 	{
 		printf("main: successfully created a new thread with TID of %lu\n", tid);
-		pthread_join(tid, NULL);
+		
 	}
 	else //unsucessful creation of a seccond thread
 	{
 		printf(" ERR: error at line %d, error: %s", __LINE__, strerror(result));
 	}
 
-	
+	pthread_join(tid, NULL);
 
 	printf("main: second thread has terminated, main will now exit.\n");
 }
