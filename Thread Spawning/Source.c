@@ -41,7 +41,7 @@ void* main(int argv, char* argc[])
 	int result;
 
 	//print initial data
-	printf("main: main thread here; pid is %lu, tid is %lu", getpid(), gettid());
+	printf("main: main thread here; pid is %lu, tid is %lu\n", getpid(), pthread_self());
 
 	//spawn new thread
 	result = pthread_create(&tid, NULL, thread(), NULL);
@@ -50,7 +50,7 @@ void* main(int argv, char* argc[])
 	//check results and complete program accordingly
 	if (result == 0)//successful creation of a seccond thread
 	{
-		printf("main: successfully created a new thread with TID of %lu", tid);
+		printf("main: successfully created a new thread with TID of %lu\n", tid);
 		pthread_join(tid, NULL);
 	}
 	else //unsucessful creation of a seccond thread
@@ -60,7 +60,7 @@ void* main(int argv, char* argc[])
 
 	
 
-	printf("main: second thread has terminated, main will now exit.");
+	printf("main: second thread has terminated, main will now exit.\n");
 }
 
 
@@ -69,5 +69,5 @@ void* main(int argv, char* argc[])
 
 void* threadProgram()
 {
-	printf("\tsecond thread here, my tid is %lu but I'm still in process %lu", gettid(), getpid());
+	printf("\tsecond thread here, my tid is %lu but I'm still in process %lu\n", gettid(), getpid());
 }
