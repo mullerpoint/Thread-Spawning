@@ -44,7 +44,7 @@ void* main(int argv, char* argc[])
 	printf("main: main thread here; pid is %lu, tid is %lu\n", getpid(), pthread_self());
 
 	//spawn new thread
-	result = pthread_create(&tid, NULL, thread(), NULL);
+	result = pthread_create(&tid, NULL, threadProgram(), NULL);
 
 
 	//check results and complete program accordingly
